@@ -21,15 +21,6 @@
 
 El objetivo es crear una herramienta moderna, práctica y modular que reúna funciones útiles para el trabajo diario de producción musical.
 
-## 🖥️ Concepto visual y arquitectura
-
-### Maqueta de la interfaz
-
-<p align="center">
-  <img src="docs/referencias/raffa_audiolab_ui_concept.png" alt="Raffa AudioLab - Maqueta de la interfaz" width="800">
-</p>
-
-*Concepto visual de la aplicación de escritorio.*
 
 ### Arquitectura e información técnica
 
