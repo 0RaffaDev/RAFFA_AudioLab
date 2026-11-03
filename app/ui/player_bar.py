@@ -144,3 +144,12 @@ class PlayerBar(QFrame):
     def check_media_status(self, status):
         if status == QMediaPlayer.MediaStatus.EndOfMedia:
             self.next_track()
+
+    def play_file(self, file_path, playlist=None):
+        if playlist:
+            self.playlist = playlist
+        else:
+            self.playlist = [file_path]
+
+        self.current_index = self.playlist.index(file_path)
+        self.load_current_track()

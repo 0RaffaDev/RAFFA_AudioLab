@@ -5,6 +5,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
+from app.ui.pages.songs_page import SongsPage
 
 from app.ui.player_bar import PlayerBar
 from app.ui.sidebar import Sidebar
@@ -62,7 +63,9 @@ class MainWindow(QMainWindow):
         main_layout.addLayout(top_layout, 1)
         main_layout.addWidget(self.player_bar)
 
+
     def create_pages(self):
+
         sections = [
             ("Inicio", "Bienvenido a Raffa AudioLab"),
             ("Canciones", "Tu biblioteca musical"),
@@ -74,16 +77,21 @@ class MainWindow(QMainWindow):
         self.page_indexes = {}
 
         for name, title in sections:
-            page = QWidget()
-            layout = QVBoxLayout(page)
 
-            layout.setContentsMargins(35, 35, 35, 35)
+            if name == "Canciones":
+                page = SongsPage()
 
-            heading = QLabel(title)
-            heading.setObjectName("pageTitle")
+            else:
+                page = QWidget()
+                layout = QVBoxLayout(page)
 
-            layout.addWidget(heading)
-            layout.addStretch()
+                layout.setContentsMargins(35, 35, 35, 35)
+
+                heading = QLabel(title)
+                heading.setObjectName("pageTitle")
+
+                layout.addWidget(heading)
+                layout.addStretch()
 
             self.page_indexes[name] = self.pages.count()
             self.pages.addWidget(page)
